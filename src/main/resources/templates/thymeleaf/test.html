@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <title></title>
     
-<!-- 	<script th:src="@{/static/js/test.js}"></script> -->
+<!-- 引入静态资源文件 -->
+<!-- <script th:src="@{/static/js/test.js}"></script> -->
     
 </head>
 <body>
@@ -12,7 +13,7 @@
 <div>
 	用户姓名：<input th:id="${user.name}" th:name="${user.name}" th:value="${user.name}"/>
 	<br/>
-	用户年龄：<input th:value="${user.age}"/>
+	用户年龄：<input th:id="${user.age}" th:name="${user.age}" th:value="${user.age}"/>
 	<br/>
 	用户生日：<input th:value="${user.birthday}"/>
 	<br/>
@@ -45,6 +46,7 @@ URL:<br/>
 <br/>
 
 <br/>
+
 <form th:action="@{/th/postform}" th:object="${user}" method="post" th:method="post">
     <input type="text" th:field="*{name}"/>
     <input type="text" th:field="*{age}"/>
@@ -53,6 +55,7 @@ URL:<br/>
 <br/>
 
 <br/>
+
 <div th:if="${user.age} == 18">十八岁的天空</div>
 <div th:if="${user.age} gt 18">你老了</div>
 <div th:if="${user.age} lt 18">你很年轻</div>
@@ -61,6 +64,7 @@ URL:<br/>
 <br/>
 
 <br/>
+
 <select>
      <option >选择框</option>
      <option th:selected="${user.name eq 'lee'}">lee</option>
@@ -70,6 +74,7 @@ URL:<br/>
 <br/>
 
 <br/>
+
 <table>
     <tr>
         <th>姓名</th>
@@ -87,6 +92,7 @@ URL:<br/>
 <br/>
 
 <br/>
+
 <div th:switch="${user.name}">
   <p th:case="'lee'">lee</p>
   <p th:case="#{roles.manager}">普通管理员</p>
